@@ -1,7 +1,7 @@
 include ':common'
 include ':app', ':simplebehavior', ':LaunchStarter'
 setBinding(new Binding([gradle: this]))
-evaluate(new File(
-        settingsDir.parentFile,
-        'Jetpack_GitHub/flutter_module/.android/include_flutter.groovy'
-))
+//evaluate(new File(
+//        settingsDir.parentFile,
+//        'Jetpack_GitHub/flutter_module/.android/include_flutter.groovy'
+//))

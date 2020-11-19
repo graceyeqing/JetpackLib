@@ -71,6 +71,8 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-common-java8:2.2.0'
 
 
     //okhttp + retrofit(2.6.0以后支持协程)
@@ -124,6 +126,6 @@ dependencies {
     implementation project(path: ':LaunchStarter')
 
     //flutter
-    implementation project(':flutter')
+//    implementation project(':flutter')
 
 }

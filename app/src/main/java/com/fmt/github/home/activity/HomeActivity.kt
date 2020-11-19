@@ -8,7 +8,6 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
-import com.fmt.github.FlutterAppActivity
 import com.fmt.github.R
 import com.fmt.github.base.activity.BaseVMActivity
 import com.fmt.github.base.viewmodel.BaseViewModel
@@ -99,8 +98,6 @@ class HomeActivity : BaseVMActivity(), NavigationView.OnNavigationItemSelectedLi
 
             R.id.item_trend -> {
                 Bundle().run {
-                    putString(FlutterAppActivity.INIT_PARAMS, Constant.Router.ROUTER_TREND)
-                    startActivity<FlutterAppActivity>(this)
                 }
             }
 
