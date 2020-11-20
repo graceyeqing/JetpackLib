@@ -4,8 +4,9 @@
     android:id="@+id/mRefreshLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/common_bg_color">
-
+    android:background="@color/common_bg_color"
+    app:srlEnableFooterFollowWhenNoMoreData="true">
+<!--    app:srlFixedFooterViewId="@layout/layout_footer"-->
     <com.kennyc.view.MultiStateView
         android:id="@+id/mMultipleStatusView"
         android:layout_width="match_parent"

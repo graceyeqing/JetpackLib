@@ -2,7 +2,8 @@ package com.fmt.github.user.fragment
 
 import android.os.Bundle
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.fmt.github.BR
 import com.fmt.github.R
 import com.fmt.github.base.fragment.BaseListMVFragment
@@ -47,12 +48,29 @@ class UserReposFragment : BaseListMVFragment<ReposItemModel>(){
         val type = Type<LayoutReposBinding>(R.layout.layout_repos)
             .onClick {
                 val reposItemModel = mListData[it.bindingAdapterPosition]
-                go2ReposDetailActivity(mActivity,reposItemModel.html_url,reposItemModel.name,reposItemModel.owner.login)
+                go2ReposDetailActivity(
+                    mActivity,
+                    reposItemModel.html_url,
+                    reposItemModel.name,
+                    reposItemModel.owner.login
+                )
             }
         LastAdapter(mListData, BR.item)
             .map<ReposItemModel>(type)
             .into(mRecyclerView.apply {
-                layoutManager = LinearLayoutManager(mActivity)
+//                layoutManager = LinearLayoutManager(mActivity)
+                //交错排列的瀑布流
+                val staggeredGridLayoutManager = StaggeredGridLayoutManager(
+                    2,
+                    StaggeredGridLayoutManager.VERTICAL
+                )
+                staggeredGridLayoutManager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_NONE)
+                layoutManager = staggeredGridLayoutManager
+                mRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+                    fun onScrollStateChanged() {
+                        (layoutManager as StaggeredGridLayoutManager).invalidateSpanAssignments() /* 防止第一行到顶部有空白区域 */
+                    }
+                })
             })
     }
 

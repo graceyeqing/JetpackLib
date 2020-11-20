@@ -29,4 +29,9 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
+    <!--    设置状态栏颜色-->
+    <style name="StatusBarTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/indicator_color</item><!--高于AI21状态栏颜色-->
+    </style>
+
 </resources>

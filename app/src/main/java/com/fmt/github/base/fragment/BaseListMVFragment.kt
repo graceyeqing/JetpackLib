@@ -55,14 +55,29 @@ abstract class BaseListMVFragment<M> : BaseVMFragment(), OnRefreshListener,
     protected val mListObserver = Observer<List<M>> {
         (it != null && it.isNotEmpty()).yes {
             mMultipleStatusView.viewState = MultiStateView.ViewState.CONTENT
+        }.otherwise {
+            (mPage == 1).yes {
+                mMultipleStatusView.viewState = MultiStateView.ViewState.EMPTY
+            }.otherwise {
+                mMultipleStatusView.viewState = MultiStateView.ViewState.CONTENT
+            }
         }
         (mPage == 1).yes {
             mListData.clear()
             mListData.addAll(it)
-            mRefreshLayout.finishRefresh()
+            if (it.size < 20) {
+                mRefreshLayout.finishRefreshWithNoMoreData()
+            } else {
+                mRefreshLayout.finishRefresh()
+            }
         }.otherwise {
             mListData.addAll(it)
-            mRefreshLayout.finishLoadMore()
+            if (it.size < 20) {
+                mRefreshLayout.finishLoadMoreWithNoMoreData()
+            } else {
+                mRefreshLayout.finishLoadMore()
+            }
+
         }
     }
 

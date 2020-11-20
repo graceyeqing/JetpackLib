@@ -5,7 +5,7 @@
         <item
             android:id="@+id/item_browser_open"
             android:title="@string/browser_open"
-            app:showAsAction="never" />
+            app:showAsAction="always" />
         <item
             android:id="@+id/item_copy_link"
             android:title="@string/copy_link"

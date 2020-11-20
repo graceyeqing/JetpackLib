@@ -21,6 +21,8 @@ import com.jeremyliao.liveeventbus.LiveEventBus
 import com.like.LikeButton
 import com.like.OnLikeListener
 import kotlinx.android.synthetic.main.activity_repos_detail.*
+import kotlinx.android.synthetic.main.base_toolbar.*
+import kotlinx.android.synthetic.main.base_toolbar.view.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ReposDetailActivity : BaseVMActivity() {
@@ -45,14 +47,16 @@ class ReposDetailActivity : BaseVMActivity() {
         mWebUrl = intent.getStringExtra(WEB_URL)
         mWebDelegate = WebDelegate.create(AgentWebContainer(), this, mRootView, mWebUrl)
         lifecycle.addObserver(mWebDelegate)
-        setSupportActionBar(mToolbar)
-        supportActionBar?.let { actionBar ->
-            actionBar.setDisplayHomeAsUpEnabled(true)//添加默认的返回图标
-            actionBar.setHomeButtonEnabled(true)//设置返回键可用
-            actionBar.title = mRepos//设置标题
-        }
+//        setSupportActionBar(mToolbar)
+//        supportActionBar?.let { actionBar ->
+//            actionBar.setDisplayHomeAsUpEnabled(true)//添加默认的返回图标
+//            actionBar.setHomeButtonEnabled(true)//设置返回键可用
+//            actionBar.title = mRepos//设置标题
+//        }
+        initToolBar(mRepos)
         initListener()
     }
+
 
     override fun getViewModel(): BaseViewModel = mViewModel
 

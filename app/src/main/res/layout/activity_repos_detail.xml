@@ -10,26 +10,27 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/mToolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            app:titleTextColor="@android:color/white" />
-    </LinearLayout>
+<!--        <androidx.appcompat.widget.Toolbar-->
+<!--            android:id="@+id/mToolbar"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@color/colorPrimary"-->
+<!--            app:titleTextColor="@android:color/white" />-->
+        <include layout="@layout/base_toolbar"/>
+        </LinearLayout>
 
-    <!--
-        1.在5.0版本以上，任意的ViewGroup组件,只需要加入三个属性即可实现阴影效果：
-            android:elevation="3dp"
-            android:outlineProvider="bounds"
-            android:translationZ="3dp"
+        <!--
+            1.在5.0版本以上，任意的ViewGroup组件,只需要加入三个属性即可实现阴影效果：
+                android:elevation="3dp"
+                android:outlineProvider="bounds"
+                android:translationZ="3dp"
 
-        2.android:outlineProvider来指定轮廓的判定方式：
-            none 即使设置了Z属性，也不会显示阴影
-            background 会按照背景来设置阴影形状
-            bounds 会按照View的大小来描绘阴影
-            paddedBounds 和bounds类似，不过阴影会稍微向右偏移一点
-    -->
+            2.android:outlineProvider来指定轮廓的判定方式：
+                none 即使设置了Z属性，也不会显示阴影
+                background 会按照背景来设置阴影形状
+                bounds 会按照View的大小来描绘阴影
+                paddedBounds 和bounds类似，不过阴影会稍微向右偏移一点
+        -->
     <FrameLayout
         android:id="@+id/fl_favor"
         android:layout_width="@dimen/dp_50"
